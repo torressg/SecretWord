@@ -1,13 +1,13 @@
 import React from 'react'
 
-import './StartScreen.Module.css'
+import './StartScreen.css'
 
-export const StartScreen = () => {
+export const StartScreen = ({ click }) => {
     return (
         <div className='start'> 
             <h1>Secret Word</h1>
             <p>Clique no botão abaixo para começar</p>
-            <button>Jogar</button>
+            <button onClick={ click }>Jogar</button>
         </div>
     )
 }
