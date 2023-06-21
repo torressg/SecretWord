@@ -131,6 +131,7 @@ function App() {
       {gameStage === "end" &&
         <EndScreen
           click={retry}
+          score={score}
         />}
     </div>
   )
