@@ -6,7 +6,8 @@
     --button: #487eb0;
     --buttonhover: #40739e;
     --title: #f5f6fa;
-    --white: white
+    --white: white;
+    --box-letters: #353b48
 }
 
 html,
@@ -19,6 +20,13 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--main-bg-color)
+}
+
+h1 {
+    color: var(--title);
+}
+p {
+    color: var(--subtitle);
 }
 
 button {
