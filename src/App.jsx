@@ -33,19 +33,23 @@ function App() {
   const [guesses, setGuesses] = useState(3)
   const [score, setScore] = useState(0)
 
-  function pickWordAndCategory() {
+  const pickWordAndCategory = useCallback(() => {
     // pick a random category
-    const categories = Object.keys(words)
-    const category = categories[Math.floor(Math.random() * Object.keys(categories).length)]
+    const categories = Object.keys(words);
+    const category =
+      categories[Math.floor(Math.random() * Object.keys(categories).length)];
 
     // pick a random word
-    const word = words[category][Math.floor(Math.random() * words[category].length)]
-    
-    return {word, category}
-  }
+    const word =
+      words[category][Math.floor(Math.random() * words[category].length)];
+
+    console.log(category, word);
+
+    return { category, word };
+  }, [words]);
 
   // start the game
-  function handleStart() {
+  const handleStart = useCallback(() => {
     // clear letters
     clearLetterStates()
 
@@ -63,7 +67,7 @@ function App() {
     
     // game screen
     setGameStage(stages[1].name)
-  }
+  })
 
   // input of letters
   const verifyLetter = (letter) => {
@@ -111,7 +115,7 @@ function App() {
 
     const uniqueLetters = [... new Set(letters)]
     
-    if(guessedLetters.length === uniqueLetters.length){
+    if(guessedLetters.length === uniqueLetters.length && gameStage === "game"){
       setScore((actualScore) => actualScore += 50)
 
       handleStart()
